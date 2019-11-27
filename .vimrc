@@ -74,13 +74,16 @@ set autoindent
 set smartindent
 set ts=4
 set sw=4
-set noexpandtab
+set expandtab " tab conver to space, noexpandtab no convert
+set sts=4
 set smarttab
 set ignorecase
 set hlsearch
 set incsearch
 set autoread
 set autowrite
+
+"set fdm=syntax
 
 let mapleader=','
 
@@ -222,6 +225,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F4> :NERDTreeToggle<CR>
+map <F3> :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '*'
 let NERDTreeIgnore=[]
