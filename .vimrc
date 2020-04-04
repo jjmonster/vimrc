@@ -82,7 +82,12 @@ set hlsearch
 set incsearch
 set autoread
 set autowrite
-
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+"colorscheme solarized
 "set fdm=syntax
 
 let mapleader=','
